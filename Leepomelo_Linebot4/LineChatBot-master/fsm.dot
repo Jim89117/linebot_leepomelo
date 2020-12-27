@@ -1,0 +1,47 @@
+digraph G{
+    user [shape = circle, style = filled, color = blueviolet, fontcolor = white,fontsize = 20]
+    user -> input_menu [label = "is_going_to_input_menu"]
+    user -> question [label = "is_going_to_question"]
+    user -> menu [label = "is_going_to_menu"]
+
+    question -> answer [label = "is_going_to_answer"]
+    question -> user [label = "go_back"];
+
+    answer -> user [label = "go_back"];
+    answer -> question [label = "is_going_to_question"]
+
+    menu -> show_pomelo_introduction [label = "is_going_to_show_pomelo_introduction"];
+    menu -> menu_pic [label = "is_going_to_menu_pic"]
+    menu -> user [label = "go_back"];
+    
+    menu_pic -> user [label = "go_back"];
+
+    input_menu ->  show_pomelo_introduction [label = "is_going_to_show_pomelo_introduction"];  
+    show_pomelo_introduction -> user [label = "go_back"];
+    show_pomelo_introduction  ->  show_pomelo_discount [label = "is_going_to_show_pomelo_discount"];
+    show_pomelo_introduction  ->  show_pomelo_introduction [label = "is_going_to_show_pomelo_introduction"];
+    show_pomelo_introduction  ->  input_health_information [label = "is_going_to_input_health_information"];
+
+    input_menu ->  show_pomelo_discount [label = "is_going_to_show_pomelo_discount"];  
+    show_pomelo_discount -> user [label = "go_back"];
+    show_pomelo_discount  -> show_pomelo_discount [label = "is_going_to_show_pomelo_discount"];
+    show_pomelo_discount  -> input_health_information [label = "is_going_to_input_health_information"];
+    show_pomelo_discount  -> show_pomelo_introduction [label = "is_going_to_show_pomelo_introduction"]; 
+    
+    input_menu ->  input_health_information [label = "is_going_to_input_health_information"];  
+    input_health_information -> input_menu [label = "is_going_to_input_menu"];
+    input_health_information -> user [label = "go_back"];
+    input_health_information  -> show_pomelo_discount [label = "is_going_to_show_pomelo_discount"];
+    input_health_information  -> input_health_information [label = "is_going_to_input_health_information"];
+    input_health_information  -> show_pomelo_introduction [label = "is_going_to_show_pomelo_introduction"];
+    input_health_information  -> show_pomelo_benefit [label = "is_going_to_show_pomelo_benefit"];
+    input_health_information  -> show_pomelo_taboo [label = "is_going_to_show_pomelo_taboo"];
+
+    show_pomelo_benefit  -> show_pomelo_benefit [label = "is_going_to_show_pomelo_benefit"];
+    show_pomelo_benefit -> input_menu [label = "is_going_to_input_menu"];
+    show_pomelo_benefit -> user [label = "go_back"];
+
+    show_pomelo_taboo  -> show_pomelo_taboo [label = "is_going_to_show_pomelo_taboo"];
+    show_pomelo_taboo -> input_menu [label = "is_going_to_input_menu"];
+    show_pomelo_taboo -> user [label = "go_back"];
+}
